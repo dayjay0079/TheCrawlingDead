@@ -14,41 +14,45 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Group root = new Group();
-        Scene scene = new Scene(root, Color.DARKMAGENTA);
+        try{
+            Group root = new Group();
+            Scene scene = new Scene(root, Color.DARKMAGENTA);
 
-        // Initial window setup
-        Image icon = new Image("icon.png");
-        primaryStage.getIcons().add(icon);
-        primaryStage.setTitle("The Crawling Dead with ABRAHAM FORD");
-        primaryStage.setWidth(640*SCREENSIZE);
-        primaryStage.setHeight(480*SCREENSIZE);
-        primaryStage.setResizable(false);
-        primaryStage.setFullScreen(fullscreen);
+            // Initial window setup
+            Image icon = new Image("icon.png");
+            primaryStage.getIcons().add(icon);
+            primaryStage.setTitle("The Crawling Dead with ABRAHAM FORD");
+            primaryStage.setWidth(640*SCREENSIZE);
+            primaryStage.setHeight(480*SCREENSIZE);
+            primaryStage.setResizable(false);
+            primaryStage.setFullScreen(fullscreen);
 
-        // Showing some text on screen
-        Text text = new Text();
-        text.setText("Yooooo, we ballin\'");
-        text.setX(320*SCREENSIZE - 150);
-        text.setY(240*SCREENSIZE);
-        text.setFont(Font.font("Verdana", 50));
-        text.setFill(Color.WHITE);
+            // Showing some text on screen
+            Text text = new Text();
+            text.setText("Yooooo, we ballin'");
+            text.setX(320*SCREENSIZE - 150);
+            text.setY(240*SCREENSIZE);
+            text.setFont(Font.font("Verdana", 50));
+            text.setFill(Color.WHITE);
 
-        // Showing a line on screen
-        Line line = new Line();
-        line.setStartX(200);
-        line.setStartY(200);
-        line.setEndX(400);
-        line.setEndY(400);
-        line.setStrokeWidth(5);
-        line.setStroke(Color.GOLD);
-        line.setOpacity(0.5);
+            // Showing a line on screen
+            Line line = new Line();
+            line.setStartX(200);
+            line.setStartY(200);
+            line.setEndX(400);
+            line.setEndY(400);
+            line.setStrokeWidth(5);
+            line.setStroke(Color.GOLD);
+            line.setOpacity(0.5);
 
 
-        root.getChildren().add(text);
-        root.getChildren().add(line);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            root.getChildren().add(text);
+            root.getChildren().add(line);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
