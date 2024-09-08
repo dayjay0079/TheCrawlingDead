@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TheCrawlingDead:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TheCrawlingDead_jar</output-path>
+    <root id="archive" name="TheCrawlingDead.jar">
+      <element id="module-output" name="TheCrawlingDead" />
+    </root>
+  </artifact>
+</component>

@@ -2,10 +2,17 @@ import java.util.*;
 import java.io.*;
 
 public class FileReader {
-    public static String[] readFile(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        Scanner fileScanner = new Scanner(file);
-        
+    public static String[] readFile(String fileName) {
+        Scanner fileScanner;
+        while(true) {
+            try {
+                fileScanner = new Scanner(new File(fileName));
+                break;
+            } catch (FileNotFoundException e) {
+                e.getStackTrace();
+            }
+        }
+
         ArrayList<String> stringArrayList = new ArrayList<>();
         while (fileScanner.hasNextLine()) {
             stringArrayList.add(fileScanner.nextLine());
