@@ -3,9 +3,15 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
 
 public class Background {
-    private Tile[][] background = new Tile[40][30];
+    private Tile[][] background;
+    private int xView;
+    private int yView;
 
     public Background() {
+        background = new Tile[40][30];
+        xView = 0;
+        yView = 0;
+
         String[] backbuffer_init = FileReader.readFile("./src/memory_init/backbuffer_init.mem");
 
         for(int y = 0; y < 30; y++) {
@@ -26,8 +32,8 @@ public class Background {
                 Color[][] colormap = this.background[xTile][yTile].getPixelMap();
                 for(int yPixel = 0; yPixel < 32*Main.SCREENSIZE; yPixel++) {
                     for (int xPixel = 0; xPixel < 32*Main.SCREENSIZE; xPixel++) {
-                        int x = xTile*32*Main.SCREENSIZE + xPixel;
-                        int y = yTile*32*Main.SCREENSIZE + yPixel;
+                        int x = xTile*32*Main.SCREENSIZE + xPixel - this.xView;
+                        int y = yTile*32*Main.SCREENSIZE + yPixel - this.yView;
                         pw.setColor(x, y, colormap[xPixel/Main.SCREENSIZE][yPixel/Main.SCREENSIZE]);
                     }
                 }
@@ -35,5 +41,18 @@ public class Background {
         }
 
         return backgroundCanvas;
+    }
+
+    public void viewUp() {
+        this.xView -= Main.playerSpeed;
+    }
+    public void viewDown() {
+        this.xView += Main.playerSpeed;
+    }
+    public void viewLeft() {
+        this.yView -= Main.playerSpeed;
+    }
+    public void viewRight() {
+        this.yView += Main.playerSpeed;
     }
 }
